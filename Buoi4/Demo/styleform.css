@@ -1,0 +1,14 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: none;
+}
+td{
+	border: none;
+	text-align: left;
+	padding: 8px;
+}
+.dangki{
+text-align:center;
+}

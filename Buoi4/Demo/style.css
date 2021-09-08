@@ -2,6 +2,7 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    border: none;
 }
 th {
     border: 1px solid #dddddd;
@@ -31,4 +32,8 @@ ul{
 ol{
     padding-left: 50px;
     font-weight: bold;
+}
+input
+{
+    text-align: center;
 }
