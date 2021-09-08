@@ -21,3 +21,6 @@ th, td {
 tr:nth-child() {
     background-color: #dddddd;
 }
+.wufoo {
+font-family: "Lucida Grande","Lucida Sans Unicode", Tahoma, sans-serif;
+}
