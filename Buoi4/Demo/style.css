@@ -11,6 +11,7 @@ td, th {
     border: 1px solid #dddddd;
     text-align: center;
     padding: 8px;
+    float: left;
 }
 tr:nth-child(odd) {
     background-color: #dddddd;
