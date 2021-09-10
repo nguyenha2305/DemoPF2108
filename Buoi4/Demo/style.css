@@ -12,7 +12,7 @@ td, th {
     text-align: center;
     padding: 8px;
 }
-tr:nth-child() {
+tr:nth-child(odd) {
     background-color: #dddddd;
 }
 .wufoo {
