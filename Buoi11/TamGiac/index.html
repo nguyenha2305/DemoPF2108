@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+</head>
+
+<body>
+    <script>
+        let n = parseInt(prompt("Nhap vao so nguyen duong n: "));
+        let count = 1;
+        while (count < n) {
+            // tam giac vuong tai goc duoi ben trai
+            for (let i = 1; i <= n; i++) { // chạy dòng
+                // in dấu * có trong hàng
+                for (let j = 1; j <= i; j++) {
+                    document.write('*');
+                }
+                // xuống dòng
+                document.write("<br>");
+                count++;
+            }
+            document.write('<br>');
+            // tam giac vuong tai goc tren ben trai
+            for (let i = n; i >= 1; i--) { // chạy dòng
+                // in dấu * có trong hàng
+                for (let j = 1; j <= i; j++) {
+                    document.write('*');
+                }
+                // in space
+                for (let k = n; k > i; k--) {
+                    document.write('&nbsp;&nbsp;');
+                }
+                // xuống dòng
+                document.write("<br>");
+                count++;
+            }
+            document.write('<br>');
+            // tam giac vuong tai goc duoi ben phai
+            for (let i = 1; i <= n; i++) { // chạy dòng
+                // in dấu space
+                for (let k = n; k > i; k--) {
+                    document.write('&nbsp;&nbsp;');
+                }
+                // in dấu * có trong hàng
+                for (let j = 1; j <= i; j++) {
+                    document.write('*');
+                }
+                // xuống dòng
+                document.write("<br>");
+                count++;
+            }
+            document.write('<br>');
+            // tam giac vuong tai goc tren ben phai
+            for (let i = n; i >= 1; i--) { // chạy dòng
+                // in space
+                for (let k = n; k > i; k--) {
+                    document.write('&nbsp;&nbsp;');
+                }
+                // in dấu * có trong hàng
+                for (let j = 1; j <= i; j++) {
+                    document.write('*');
+                }
+                // xuống dòng
+                document.write("<br>");
+                count++;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

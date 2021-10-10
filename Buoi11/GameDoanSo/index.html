@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+</head>
+
+<body>
+    <button id="startBtn">Play</button>
+    <script>
+        let startBtn = document.getElementById('startBtn');
+        let random, guessNumber;
+        startBtn.addEventListener('click', function () {
+            let maxNumber = parseInt(prompt("Nhap gia tri lon nhat: "));
+            random = parseInt(Math.random() * maxNumber);
+            console.log(random);
+            guessNumber = parseInt(prompt("Please enter an integer to guess"));
+            let count = 0;
+            while (guessNumber != random && count < 3) {
+                if (guessNumber > random) alert("Bigger than random!");
+                if (guessNumber > random) alert("Smaller than random!");
+                if (guessNumber = random) {
+                    alert("Bingo!");
+                    break;
+                }
+                count++;
+            }
+            if (count >= 3) { alert('Limited guess'); }
+        });
+
+    </script>
+</body>
+
+</html>
