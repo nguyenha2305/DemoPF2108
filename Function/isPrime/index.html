@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>isPrime</title>
+</head>
+
+<body>
+    <script>
+        var i, n, nt = 1;
+        function isPrime(x) {
+            if (x == 2) nt = 1;
+            if (x > 2) {
+                for (i = 2; i <= Math.sqrt(x); i++) {
+                    if (x % i == 0) { nt = 0; break; }
+                }
+            }
+            return nt;
+        }
+        n = prompt("Nhap gia tri n:");
+        if (isPrime(n) == 1) document.write(n + " La so nguyen to");
+        else document.write(n + " Khong la so nguyen to");
+    </script>
+</body>
+
+</html>
