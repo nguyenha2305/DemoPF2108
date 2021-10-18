@@ -10,19 +10,27 @@
 
 <body>
     <script>
-        var i, n, nt = 1;
+        let primeStr = '';
+        for (let i = 2; i <= 10000; i += 2) {
+            if (isPrime(i) == 0) {
+                primeStr += i + ' ';
+            }
+            document.write(primeStr);
+        }
+        nt = 1;
         function isPrime(x) {
             if (x == 2) nt = 1;
             if (x > 2) {
-                for (i = 2; i <= Math.sqrt(x); i++) {
+                for (let i = 2; i <= Math.sqrt(x); i++) {
                     if (x % i == 0) { nt = 0; break; }
                 }
             }
             return nt;
         }
-        n = prompt("Nhap gia tri n:");
+        let n = prompt("Nhap gia tri n:");
         if (isPrime(n) == 1) document.write(n + " La so nguyen to");
         else document.write(n + " Khong la so nguyen to");
+
     </script>
 </body>
 
