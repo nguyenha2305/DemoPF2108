@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature</title>
+</head>
+<body>
+    <script>
+        class Temperature {
+            constructor(c) {
+                this.c=c;
+            }
+            CToF() {
+                let degreeF=1.8*this.c+32;
+                return degreeF;
+            }
+            CToK() {
+                let degreeK=this.c+273.15;
+                return degreeK;
+            }
+        };
+        let temperature=new Temperature(25);
+
+        let degreeF=temperature.CToF();
+        let degreeK=temperature.CToK();
+        document.write("Nhiệt độ độ F là:"+degreeF);
+        document.write("<br>");
+        document.write("Nhiệt độ độ K là:"+degreeK);
+    </script>
+</body>
+</html>
