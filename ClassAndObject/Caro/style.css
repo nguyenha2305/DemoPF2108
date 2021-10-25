@@ -1,6 +1,6 @@
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
@@ -16,14 +16,12 @@ div {
 h1 {
   display: inline-block;
   width: 50%;
-  margin: 20px 0;
 }
 
 p {
   display: block;
   width: 100%;
   color: red;
-  margin-bottom: 20px;
 }
 
 table {
@@ -50,7 +48,6 @@ td input {
 input#reset {
   display: inline-block;
   border: none;
-  padding: 10px 10px;
   background-color: rgb(224, 0, 0);
   color: white;
   font-weight: bold;
