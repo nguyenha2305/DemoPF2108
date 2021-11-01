@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ai là triệu phú</title>
+    <link rel="stylesheet" href="./css/stylePlayGame.css" />
+</head>
+
+<body style="background-image: url('./images/backgroundgame.jpg');">
+    <div class="header">
+        <div id="countDown">
+
+            <div id="timer">30</div>
+            <script>
+                let count = 30;
+
+                function fnCountDown() {
+                    let timer = document.getElementById('timer');
+                    if (count >= 0) {
+                        timer.innerHTML = count;
+                        count--;
+                        setTimeout(() => {
+                            fnCountDown()
+                        }, 1000);
+                    }
+
+
+                }
+                fnCountDown()
+            </script>
+        </div>
+    </div>
+    <div class="container">
+        <div class="content">
+            <div style="height: 220px;"></div>
+            <p class="content__card btn-grad" id="question">What does HTML stand for?</p>
+            <div id="answer-all">
+                <p class="content__card answer__card btn-grad">
+                    A:<span class="answer" id="answer__A">Home Tool Markup Language</span>
+                </p>
+                <p class="content__card answer__card btn-grad">
+                    B:<span class="answer" id="answer__B">How To Make Love</span>
+                </p>
+                <p class="content__card answer__card btn-grad">
+                    C:<span class="answer" id="answer__C">Hyperlinks and Text Markup Language</span>
+                </p>
+                <p class="content__card answer__card btn-grad">
+                    D:<span class="answer" id="answer__D">Hyper Text Markup Language</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="help">
+            <div class="help__icon">
+                <img src="images/5050.png" alt="" />
+            </div>
+            <div class="help__icon">
+                <img src="images/call.png" alt="" />
+            </div>
+            <div class="help__icon">
+                <img src="images/hoikhangia.png" alt="" />
+            </div>
+            <div class="help__icon">
+                <img src="images/tuvantaicho.png" alt="" />
+            </div>
+        </div>
+        <div class="money">
+            <div class="money__card money__save-point">
+                <span>15</span><span class="money__icon">&#9830;</span>150.000.000
+            </div>
+            <div class="money__card">
+                <span>14</span><span class="money__icon">&#9830;</span>85.000.000
+            </div>
+            <div class="money__card">
+                <span>13</span><span class="money__icon">&#9830;</span>60.000.000
+            </div>
+            <div class="money__card">
+                <span>12</span><span class="money__icon">&#9830;</span>40.000.000
+            </div>
+            <div class="money__card">
+                <span>11</span><span class="money__icon">&#9830;</span>30.000.000
+            </div>
+            <div class="money__card money__save-point">
+                <span>10</span><span class="money__icon">&#9830;</span>22.000.000
+            </div>
+            <div class="money__card">
+                <span>9</span><span class="money__icon">&#9830;</span>14.000.000
+            </div>
+            <div class="money__card">
+                <span>8</span><span class="money__icon">&#9830;</span>10.000.000
+            </div>
+            <div class="money__card">
+                <span>7</span><span class="money__icon">&#9830;</span>6.000.000
+            </div>
+            <div class="money__card">
+                <span>6</span><span class="money__icon">&#9830;</span>3.000.000
+            </div>
+            <div class="money__card money__save-point">
+                <span>5</span><span class="money__icon">&#9830;</span>2.000.000
+            </div>
+            <div class="money__card">
+                <span>4</span><span class="money__icon">&#9830;</span>1.000.000
+            </div>
+            <div class="money__card">
+                <span>3</span><span class="money__icon">&#9830;</span>600.000
+            </div>
+            <div class="money__card">
+                <span>2</span><span class="money__icon">&#9830;</span>400.000
+            </div>
+            <div class="money__card">
+                <span>1</span><span class="money__icon">&#9830;</span>200.000
+            </div>
+        </div>
+
+    </div>
+    <!-- <div class="modal">
+        <div class="modal-header">
+            <h2 class="modal-title">CHÚC MỪNG</h2>
+        </div>
+        <div class="modal-body">
+            <p id="modal-text">Bạn đã chiến thắng trò chơi với phần thưởng</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" id="btn-reset">CHƠI LẠI</button>
+            <button class="btn" id="btn-exit">THOÁT GAME</button>
+        </div>
+    </div> -->
+
+</body>
+<script src="./script/main.js"></script>
+
+</html>

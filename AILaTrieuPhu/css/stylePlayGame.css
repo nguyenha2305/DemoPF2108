@@ -1,0 +1,181 @@
+body {
+    max-height: 100vh;
+}
+
+p {
+    font-size: 20px;
+}
+
+#countDown {
+    border: 2px solid white;
+    width: 7%;
+    color: white;
+    font-size: 3em;
+    text-align: center;
+    border-radius: 1em;
+    margin-left: 20px;
+}
+
+.nav {
+    width: 20%;
+    float: left;
+    border-radius: 5px;
+    position: relative;
+}
+
+.content {
+    width: 80%;
+    float: left;
+    min-height: 600px;
+    max-height: 100vh;
+}
+
+.header {
+    height: 30px;
+}
+
+.container {
+    width: 100%;
+    max-height: 100vh;
+}
+
+.content__card {
+    border: 3px solid #fff;
+    border-radius: 999px;
+    padding: 1rem;
+    background: rgb(14, 14, 180);
+    color: #fff;
+    font-weight: 600;
+}
+
+.content__question {
+    display: none;
+}
+
+#question {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    border-radius: 8px;
+}
+
+#answer-all {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 8px;
+}
+
+.nav .help {
+    height: 50px;
+}
+
+.help {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.help__icon {
+    width: 60px;
+    max-height: 43.75px;
+}
+
+.help__icon img {
+    cursor: pointer;
+    width: 60px;
+    max-height: 43.75px;
+}
+
+.help__icon .still:hover {
+    transform: scale(0.5);
+}
+
+.money {
+    font-family: "Josefin Sans", sans-serif;
+    display: grid;
+    grid-template-rows: repeat(15, 1fr);
+}
+
+.submit-answer {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #fff;
+    font-weight: bold;
+    opacity: 0;
+}
+
+.submit-answer button {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0.3rem 0.5rem;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.money__card {
+    padding: 0.5rem 0.5rem;
+    font-size: 1rem;
+    color: orange;
+    font-weight: bolder;
+    margin-left: 1rem;
+    margin-top: 0.1rem;
+}
+
+.money__save-point {
+    color: #fff;
+}
+
+.money__card span:first-child {
+    display: inline-block;
+}
+
+.money__card .money__icon {
+    padding: 0 0.1rem;
+    color: #fff;
+    visibility: hidden;
+}
+
+
+/* 
+.money__current {
+    border: 1px solid #000;
+    border-radius: 1rem;
+    color: #000;
+    background-color: orange;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+} */
+
+.money__current .money__icon {
+    text-shadow: 0 0 10px #fff, 0 0 5px #000;
+}
+
+@media screen and (max-width: 550px) {
+    #answer-all {
+        grid-template-columns: 1fr;
+    }
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #f85032 0%, #e73827 51%, #f85032 100%)
+}
+
+.btn-grad {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-grad:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}

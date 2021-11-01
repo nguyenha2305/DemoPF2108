@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ai là triệu phú</title>
+    <link rel="stylesheet" href="./css/style.css" />
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="welcome">
+            <h2>WELCOME TO GAME</h2>
+        </div>
+        <audio id="audio" visibility="hidden">
+            <source src="./audio/start.ogg" type="audio/ogg">
+        </audio>
+        <div class="wrap-btn">
+            <input type="button" value="Start" id="btn-play" class="btn" onclick="start()">
+            <!-- <a href="playgame.html" class="btn" id="btn-play" onclick="">PLAY</a> -->
+        </div>
+    </div>
+    <script>
+        function start() {
+            var sound = document.getElementById("audio");
+            sound.play();
+            sound.onended = function() {
+                window.location.href = "./playgame.html"
+            };
+        }
+    </script>
+</body>
+
+</html>
