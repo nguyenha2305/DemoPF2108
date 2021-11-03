@@ -1,3 +1,8 @@
+:root {
+    --color-right: #81f335;
+    --color-wrong: rgb(235, 88, 62);
+}
+
 body {
     max-height: 100vh;
 }
@@ -138,14 +143,13 @@ p {
     visibility: hidden;
 }
 
-
-/* .money__current {
+.money__current {
     border: 1px solid #000;
     border-radius: 1rem;
     color: #000;
     background-color: orange;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-} */
+}
 
 .money__current .money__icon {
     text-shadow: 0 0 10px #fff, 0 0 5px #000;
@@ -238,4 +242,48 @@ p {
     /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
+}
+
+#answer-all {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 8px;
+}
+
+.answer__card {
+    cursor: pointer;
+    color: red;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.answer__card .answer {
+    color: #fff;
+}
+
+.answer__player {
+    background-color: rgb(235, 88, 62);
+    color: #000;
+}
+
+.answer__player .answer {
+    color: #000;
+}
+
+.answer--right {
+    -moz-animation-name: anim-answer--right;
+    -webkit-animation-name: anim-answer--right;
+    animation-name: anim-answer--right;
+    animation-timing-function: linear;
+    animation-duration: 300ms;
+    animation-iteration-count: 5;
+    animation-fill-mode: forwards;
+}
+
+@keyframes anim-answer--right {
+    to {
+        background-image: none;
+        background-color: #81f335;
+    }
 }

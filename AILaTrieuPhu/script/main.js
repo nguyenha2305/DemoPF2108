@@ -256,9 +256,9 @@ var listAllQuestion = [{
         toAnswer: "Scorpions",
     },
     {
-        question: "Which CSS property is used to change the text color of an element?",
-        answers: ["fgcolor", "text-color", "color", "..."],
-        toAnswer: "color",
+        question: "Ai ngáo nhất nhóm",
+        answers: ["Hiệp", "Minh", "Cường", "Mai"],
+        toAnswer: "Hiệp",
     },
     {
         question: "Which CSS property controls the text size?",
@@ -308,7 +308,6 @@ const submitAnswer = document.querySelector(".submit-answer");
 const btnSubmit = document.querySelector(".submit-answer button");
 const help = document.querySelectorAll(".help__icon img");
 const listMoneyIcon = document.querySelectorAll(".money__icon");
-
 const modal = document.querySelector(".modal");
 const modalText = document.querySelector("#modal-text");
 const btnResetGame = document.querySelector("#btn-reset");
@@ -319,10 +318,9 @@ var indexAnswerRight = -1;
 var clickSubmit = false;
 var listQuestion = [];
 var listIndexQuestion = [];
-
-
-
-
+let isAsking = false,
+    callPhoneUsed = false,
+    askViewerUsed = false;
 const listMoneys = [
     "200",
     "400",
@@ -392,28 +390,14 @@ function showQuestion(index) {
     });
 }
 
-function resetAll() {
-    // restart money list
-    clearInterval(initGameMoneyInter);
-    cardMoney.forEach((card) => card.classList.remove("money__current"));
-    for (
-        let i = listMoneyIcon.length - currentQuestion - 1; i < listMoneyIcon.length; i++
-    ) {
-        listMoneyIcon[i].style.visibility = "hidden";
-    }
-
-    // restart help
-    help[0].setAttribute("src", "images/5050.png");
-    help[1].setAttribute("src", "images/call.png");
-    help[2].setAttribute("src", "images/hoikhangia.png");
-    help[3].setAttribute("src", "images/tuvantaicho.png");
-    help.forEach((helper) => (helper.className = ""));
-}
 
 function showModal(index) {
     modal.style.display = "block";
     let kq = "Bạn không trả lời đúng câu hỏi nào.";
-    if (index) {
+    if (index < 5) {
+        kq =
+            "Rất tiếc bạn đã thua cuộc "
+    } else {
         kq =
             "Bạn đã chiến thắng trò chơi với phần thưởng " +
             listMoneys[index - 1] +
@@ -446,14 +430,8 @@ function timesToAnswer() {
     setTimeout(() => {
         if (i === 0) {
             submitAnswer.style.opacity = 0;
-            runAudio("../audio/end-time.ogg", true);
             alert("Ban da het thoi gian de tra loi cau hoi");
             alert("Ban dung lai voi " + currentQuestion + " cau hoi");
-            resetAll();
-            currentQuestion = 0;
-
-            contentQuestion.style.display = "none";
-            times.style.display = "none";
         }
     }, 30500);
 }
@@ -462,10 +440,48 @@ listAnswerCard.forEach((answer) => {
     answer.addEventListener("click", function() {
         clearAnswerPlayer();
         answer.classList.add("answer__player");
-        // submitAnswer.style.display = "block";
+        submitAnswer.style.display = "block";
         submitAnswer.style.opacity = 1;
     });
 });
+
+function callPhone() {
+    isAsking = true;
+    if (!callPhoneUsed) {
+        callPhoneUsed = true;
+        let myAnswer = `My answer is ${questionsList[level].answer}`;
+        showAnswer(myAnswer);
+    } else {
+        showAnswer("Trợ giúp đã được sử dụng!")
+    }
+}
+
+function askViewer() {
+    isAsking = true;
+    if (!askViewerUsed) {
+        askViewerUsed = true;
+        let max = 100;
+        let rate = []
+        for (let i = 0; i < 4; i++) {
+            rate[i] = Math.floor(Math.random() * max);
+            max -= rate[i];
+        }
+        showRate(rate);
+    } else {
+        showAnswer("Trợ giúp đã được sử dụng!")
+    }
+}
+
+function showRate(rate) {
+    let myString = `
+    A: ${rate[0]}%; <br>
+    B: ${rate[1]}%; <br>
+    C: ${rate[2]}%; <br>
+    D: ${rate[3]}%; <br>
+`;
+
+    showAnswer(myString);
+}
 
 function clearTwoAnswer() {
 
@@ -488,7 +504,6 @@ window.onload = function() {
     clearInterval(initGameMoneyInter);
     cardMoney.forEach((card) => card.classList.remove("money__current"));
     showQuestion(currentQuestion);
-
     help.forEach((helper) => (helper.className = "still"));
     clickSubmit = false;
     timesToAnswer();
@@ -503,12 +518,15 @@ help.forEach((helper, i) => {
                     helper.setAttribute("src", "images/5050_used.png");
                     break;
                 case 1:
+                    callPhone();
                     helper.setAttribute("src", "images/call_used.png");
                     break;
                 case 2:
+                    showRate();
                     helper.setAttribute("src", "images/hoikhangia_used.png");
                     break;
                 case 3:
+                    askViewer();
                     helper.setAttribute("src", "images/tuvantaicho_used.png");
                     break;
             }
@@ -537,8 +555,6 @@ btnSubmit.addEventListener("click", function() {
                 showModal(currentQuestion);
 
                 timer.style.display = "none";
-                resetAll();
-                audio.pause();
             }, 1500);
         } else {
 
@@ -547,18 +563,12 @@ btnSubmit.addEventListener("click", function() {
                 showQuestion(currentQuestion);
                 clickSubmit = false;
                 timesToAnswer();
-
             }, 2500);
         }
     } else {
 
         setTimeout(function() {
             showModal(currentQuestion);
-            resetAll();
-            currentQuestion = 0;
-
-            timer.style.display = "none";
-            console.log("end");
         }, 2500);
     }
     setTimeout(clearAnswerPlayer, 2500);
@@ -569,8 +579,5 @@ btnExitGame.addEventListener("click", function() {
 
 // event play again game
 btnResetGame.addEventListener("click", function() {
-
     window.location.reload();
-
-
 });
