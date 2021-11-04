@@ -256,44 +256,44 @@ var listAllQuestion = [{
         toAnswer: "Scorpions",
     },
     {
-        question: "Ai ngáo nhất nhóm",
-        answers: ["Hiệp", "Minh", "Cường", "Mai"],
-        toAnswer: "Hiệp",
+        question: "Hoa Kỳ nằm ở châu lục nào sau đây",
+        answers: ["Châu Phi", "Châu Âu", "Châu Mỹ", "Châu Á"],
+        toAnswer: "Châu Mỹ",
     },
     {
-        question: "Which CSS property controls the text size?",
-        answers: ["font-size", "text-style", "font-style", "text-size"],
-        toAnswer: "font-size",
+        question: "Đại dương nào lớn nhất trên thế giới?",
+        answers: ["Đại Tây Dương", "Bắc Băng Dương", "Ấn Độ Dương", "Thái Bình Dương"],
+        toAnswer: "Thái Bình Dương",
     },
     {
-        question: "What is the correct CSS syntax for making all the <p> elements bold?",
+        question: "Big Ben là tên của?",
         answers: [
-            "<p style='font-size:bold;'>",
-            "<p style='text-size:bold;'>",
-            "p {text-size:bold;}",
-            "p {font-weight:bold;}",
+            "1 con ngựa",
+            "1 con vật",
+            "1 chiếc đồng hồ",
+            "Tên 1 người nổi tiếng",
         ],
-        toAnswer: "p {font-weight:bold;}  ",
+        toAnswer: "1 chiếc đồng hồ",
     },
     {
-        question: "How do you display hyperlinks without an underline?",
+        question: "Đâu là ngôn ngữ chính thức được sử dụng ở vương quốc Anh?",
         answers: [
-            "a {underline:none;}",
-            "a {text-decoration:no-underline;}",
-            "a {text-decoration:none;}",
-            "a {decoration:no-underline;}",
+            "Tiếng Anh",
+            "Tiếng Pháp",
+            "Tiếng Nga",
+            "Tiếng Đức",
         ],
-        toAnswer: "a {text-decoration:none;}",
+        toAnswer: "Tiếng Anh",
     },
     {
-        question: "How do you make each word in a text start with a capital letter?",
+        question: "Đâu là một loại trái cây?",
         answers: [
-            "text-style:capitalize",
-            "transform:capitalize",
-            "You can't do that with CSS",
-            "text-transform:capitalize",
+            "Lạc",
+            "Cà chua",
+            "Khoai tây",
+            "Cà rốt",
         ],
-        toAnswer: "text-transform:capitalize",
+        toAnswer: "Cà chua",
     },
 ];
 var currentQuestion = 0;
@@ -318,9 +318,7 @@ var indexAnswerRight = -1;
 var clickSubmit = false;
 var listQuestion = [];
 var listIndexQuestion = [];
-let isAsking = false,
-    callPhoneUsed = false,
-    askViewerUsed = false;
+
 const listMoneys = [
     "200",
     "400",
@@ -396,7 +394,7 @@ function showModal(index) {
     let kq = "Bạn không trả lời đúng câu hỏi nào.";
     if (index < 5) {
         kq =
-            "Rất tiếc bạn đã thua cuộc "
+            "Rất tiếc bạn đã thua cuộc";
     } else {
         kq =
             "Bạn đã chiến thắng trò chơi với phần thưởng " +
@@ -430,8 +428,9 @@ function timesToAnswer() {
     setTimeout(() => {
         if (i === 0) {
             submitAnswer.style.opacity = 0;
-            alert("Ban da het thoi gian de tra loi cau hoi");
-            alert("Ban dung lai voi " + currentQuestion + " cau hoi");
+            alert("Bạn đã hết thời gian trả lời câu hỏi");
+            alert("Bạn dừng lại với " + currentQuestion + " câu hỏi");
+
         }
     }, 30500);
 }
@@ -445,52 +444,14 @@ listAnswerCard.forEach((answer) => {
     });
 });
 
-function callPhone() {
-    isAsking = true;
-    if (!callPhoneUsed) {
-        callPhoneUsed = true;
-        let myAnswer = `My answer is ${questionsList[level].answer}`;
-        showAnswer(myAnswer);
-    } else {
-        showAnswer("Trợ giúp đã được sử dụng!")
-    }
-}
 
-function askViewer() {
-    isAsking = true;
-    if (!askViewerUsed) {
-        askViewerUsed = true;
-        let max = 100;
-        let rate = []
-        for (let i = 0; i < 4; i++) {
-            rate[i] = Math.floor(Math.random() * max);
-            max -= rate[i];
-        }
-        showRate(rate);
-    } else {
-        showAnswer("Trợ giúp đã được sử dụng!")
-    }
-}
-
-function showRate(rate) {
-    let myString = `
-    A: ${rate[0]}%; <br>
-    B: ${rate[1]}%; <br>
-    C: ${rate[2]}%; <br>
-    D: ${rate[3]}%; <br>
-`;
-
-    showAnswer(myString);
-}
-
-function clearTwoAnswer() {
+function help5050() {
 
     let answerNoClear = -1;
     do {
         answerNoClear = Math.floor(Math.random() * 4);
     } while (answerNoClear === indexAnswerRight);
 
-    // clear two answer rest
     listAnswer.forEach((answer, i) => {
         if (i !== indexAnswerRight && i !== answerNoClear) {
             answer.textContent = "";
@@ -514,19 +475,19 @@ help.forEach((helper, i) => {
         if (helper.className === "still") {
             switch (i) {
                 case 0:
-                    clearTwoAnswer();
+                    help5050();
                     helper.setAttribute("src", "images/5050_used.png");
                     break;
                 case 1:
-                    callPhone();
+
                     helper.setAttribute("src", "images/call_used.png");
                     break;
                 case 2:
-                    showRate();
+
                     helper.setAttribute("src", "images/hoikhangia_used.png");
                     break;
                 case 3:
-                    askViewer();
+
                     helper.setAttribute("src", "images/tuvantaicho_used.png");
                     break;
             }

@@ -101,32 +101,35 @@ p {
     font-family: "Josefin Sans", sans-serif;
     display: grid;
     grid-template-rows: repeat(15, 1fr);
+    padding-left: 120px;
 }
 
 .submit-answer {
-    margin-bottom: 2rem;
-    font-size: 2rem;
+    margin-bottom: 20px;
+    font-size: 20px;
     color: #fff;
     font-weight: bold;
     opacity: 0;
+    margin-top: 150px;
+    margin-left: 100px;
 }
 
 .submit-answer button {
     display: inline-block;
-    font-size: 2rem;
+    font-size: 20px;
     font-weight: bold;
-    padding: 0.3rem 0.5rem;
-    margin-left: 1rem;
+    padding: 3px 5px;
+    margin-left: 10px;
     cursor: pointer;
 }
 
 .money__card {
     padding: 0.5rem 0.5rem;
     font-size: 1rem;
+    padding-top: 10px;
     color: orange;
     font-weight: bolder;
     margin-left: 1rem;
-    margin-top: 0.1rem;
 }
 
 .money__save-point {
@@ -138,7 +141,7 @@ p {
 }
 
 .money__card .money__icon {
-    padding: 0 0.1rem;
+    padding: 0.1rem 0.1rem;
     color: #fff;
     visibility: hidden;
 }
@@ -252,7 +255,6 @@ p {
 
 .answer__card {
     cursor: pointer;
-    color: red;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -263,12 +265,12 @@ p {
 }
 
 .answer__player {
-    background-color: rgb(235, 88, 62);
-    color: #000;
+    background-color: rgb(62, 235, 212);
+    color: #3eebd4;
 }
 
 .answer__player .answer {
-    color: #000;
+    color: #3eebd4;
 }
 
 .answer--right {
